@@ -138,5 +138,8 @@ files:
           test.stop_server()
     learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7217#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 23 Jan 2024 16:43:42 UTC"
 record: -1

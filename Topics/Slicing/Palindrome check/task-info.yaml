@@ -1,0 +1,22 @@
+type: code
+files:
+  - name: main.py
+    visible: true
+    highlight_level: NONE
+    text: |-
+      # please work with the preset variable `word`
+      forward =  # define here
+      backward =  # define here
+      
+      if forward == backward:
+          print("Yes")
+      else:
+          print("No")
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/6971#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Fri, 02 Feb 2024 20:04:17 UTC"
+record: -1
+submission_language: python3

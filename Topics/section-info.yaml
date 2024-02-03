@@ -2,3 +2,5 @@ content:
   - Custom generators
   - Map and filter
   - String formatting
+  - Slicing
+  - Collections module

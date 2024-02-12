@@ -1,0 +1,26 @@
+type: matching
+captions:
+  - <code>gmtime()</code>
+  - <code>asctime()</code>
+  - <code>time()</code>
+  - <code>timezone</code>
+options:
+  - <code>int</code>
+  - <code>struct_time</code>
+  - <code>float</code>
+  - <code>str</code>
+files:
+  - name: main.py
+    visible: true
+    text: |+
+      #  You can experiment here, it won’t be checked
+    
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10965#comment
+status: Solved
+record: -1
+ordering:
+  - 0
+  - 1
+  - 2
+  - 3

@@ -1,0 +1,18 @@
+type: sorting
+options:
+  - args_with_default
+  - '**kwargs'
+  - '*args'
+  - positional_args
+files:
+  - name: main.py
+    visible: true
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/7251#comment
+status: Solved
+record: -1
+ordering:
+  - 0
+  - 1
+  - 2
+  - 3

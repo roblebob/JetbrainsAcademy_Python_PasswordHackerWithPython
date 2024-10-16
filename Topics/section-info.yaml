@@ -13,3 +13,5 @@ content:
   - Args
   - Methods and attributes
   - Logging
+  - Operations with dictionary
+  - Kwargs

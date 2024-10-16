@@ -1,0 +1,16 @@
+type: sorting
+options:
+  - planet
+  - '*moons'
+  - star="Sun"
+files:
+  - name: main.py
+    visible: true
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9548#comment
+status: Solved
+record: -1
+ordering:
+  - 0
+  - 1
+  - 2

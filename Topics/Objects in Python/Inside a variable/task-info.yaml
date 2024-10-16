@@ -1,0 +1,15 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: Values
+  - text: Objects
+  - text: References to objects
+  - text: All options are correct
+files:
+  - name: main.py
+    visible: true
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/23419#comment
+status: Solved
+record: -1
+local_check: false

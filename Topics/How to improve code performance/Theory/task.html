@@ -1,6 +1,11 @@
-<h2>How to improve code performance</h2>
 <div class="step-text">
-<p>Python is a high-level programming language. It has many applications in machine learning, web development, and data analysis. It also contains easy syntax and provides various libraries for developers to increase productivity and optimize code. As a piece of code grows more complex, the program becomes inefficient. In this topic, we will learn to increase the performance of programs with built-in functions, list comprehension, generators, string concatenation, and other features.</p><h5 id="why-optimize">Why optimize?</h5><p>Code optimization is a way to perform a task faster and with fewer code lines. While doing this, the program consumes fewer resources. Why is optimizing so important? Let's consider an example with a search engine. If the new search engine is faster than the one we used before, it makes perfect sense to switch to the new one. That's why we need to use the best tools for development.</p><h5 id="built-in-functions">Built-in functions</h5><p>With built-in functions, you can increase the speed of your code greatly. They have been tested and optimized to work better. If you can write your code with built-in functions, you'll improve the performance.</p><p>Let's observe the benefit of using built-in functions on the example:</p><pre><code class="language-python">from time import time
+<p>Python is a high-level programming language. It has many applications in machine learning, web development, and data analysis. It also contains easy syntax and provides various libraries for developers to increase productivity and optimize code. As a piece of code grows more complex, the program becomes inefficient. In this topic, we will learn to increase the performance of programs with <a class="theory-lookup not-relevant" href="/learn/step/17089" rel="noopener noreferrer nofollow" target="_blank" title="In Python, built-in functions are pre-defined functions that are readily available for use in your programs. | They are always available and do not require any declaration or import. Examples include the `len()` function, which returns the length of an object, and the `max()` function, which returns the largest item in an iterable. These functions can be used directly on iterable objects such as strings and lists. It is important to note that built-in functions can either perform an action without returning anything or return a specific result.">built-in functions</a>, <a class="theory-lookup not-relevant" href="/learn/step/17089" rel="noopener noreferrer nofollow" target="_blank" title="In Python, a list comprehension is a concise and efficient way to create a new list from an iterable object. | It is specified by square brackets containing a for loop over the iterable object. For example, `[x for x in some_iterable]` is equivalent to the traditional for loop `for x in some_iterable: append(x)`. List comprehensions can also include an if statement to add a condition for inclusion in the new list, such as `[x for x in some_iterable if x &gt; 5]`.">list comprehension</a>, generators, string <a class="theory-lookup not-relevant" href="/learn/step/17089" rel="noopener noreferrer nofollow" target="_blank" title="In Python, concatenation is the process of combining two or more strings into a single string. | This is typically done using the `+` operator. For example, if we have the strings `Hello` and `World`, we can concatenate them to get the string `HelloWorld`. Concatenation can also be done with string formatting, such as `Hello {}.format(World)`. It is important to note that concatenation can also occur when using certain string methods, such as the `join()` method, which concatenates a list of strings using a specified delimiter.">concatenation</a>, and other features.</p>
+<h5 id="why-optimize">Why optimize?</h5>
+<p>Code optimization is a way to perform a task faster and with fewer code lines. While doing this, the program consumes fewer resources. Why is optimizing so important? Let's consider an example with a search engine. If the new search engine is faster than the one we used before, it makes perfect sense to switch to the new one. That's why we need to use the best tools for development.</p>
+<h5 id="built-in-functions">Built-in functions</h5>
+<p>With built-in functions, you can increase the speed of your code greatly. They have been tested and optimized to work better. If you can write your code with built-in functions, you'll improve the performance.</p>
+<p>Let's observe the benefit of using built-in functions on the example:</p>
+<pre><code class="language-python">from time import time
 
 numbers = list(range(1, 10000000))
 
@@ -22,7 +27,12 @@ print(end_time - start_time)  # 0.3405749
 start_time = time()
 total_with_sum = sum(numbers)
 end_time = time()
-print(end_time - start_time)  # 0.0446672</code></pre><p>We import the <code class="language-python">time()</code> method from the <code class="language-python">time</code> module to observe the difference. We create a list of numbers from <code class="language-python">1</code> to <code class="language-python">10000000</code>. First, we add the numbers in the function without using the built-in method. Then we add the numbers using the <code class="language-python">sum()</code> method. With the help of the <code class="language-python">time()</code> method, we observe that the difference is almost eight times.</p><p>You can access the entire list of built-in functions in the <a href="https://docs.python.org/3/library/functions.html#built-in-functions" rel="noopener noreferrer nofollow" target="_blank">official documentation</a>.</p><h5 id="list-comprehension">List comprehension</h5><p>In Python, we often use loops to add elements to a list. While doing this, we perform various control operations. We can also use list comprehension to make this happen in a faster way. As an example, let's add numbers divisible by three to a list:</p><pre><code class="language-python">from time import time
+print(end_time - start_time)  # 0.0446672</code></pre>
+<p>We import the <code class="language-python">time()</code> method from the <code class="language-python">time</code> module to observe the difference. We create a list of numbers from <code class="language-python">1</code> to <code class="language-python">10000000</code>. First, we add the numbers in the function without using the built-in method. Then we add the numbers using the <code class="language-python">sum()</code> method. With the help of the <code class="language-python">time()</code> method, we observe that the difference is almost eight times.</p>
+<p>You can access the entire list of built-in functions in the <a href="https://docs.python.org/3/library/functions.html#built-in-functions" rel="noopener noreferrer nofollow" target="_blank">official documentation</a>.</p>
+<h5 id="list-comprehension">List comprehension</h5>
+<p>In Python, we often use loops to add elements to a list. While doing this, we perform various control operations. We can also use list comprehension to make this happen in a faster way. As an example, let's add numbers divisible by three to a list:</p>
+<pre><code class="language-python">from time import time
 
 # default approach
 start = time()
@@ -37,7 +47,12 @@ print(end - start)  # 0.0812482
 start = time()
 new_list = [i for i in range(1, 1000000) if i % 3 == 0]
 end = time()
-print(end - start)  # 0.0488176</code></pre><p>Both approaches produce the same result. But list comprehension makes the code more readable, and it also makes our code run twice as fast.</p><h5 id="generators">Generators</h5><p>A regular list saves all of its elements in memory, but this is not very efficient. As you remember, generators are Python structures that allow data to be loaded temporarily. In this way, you get the data you need only when you call it. What's more, there are functions in Python that use the generator structure by default, for example, <code class="language-python">map()</code> and <code class="language-python">filter()</code>. You may want to create your generator functions as well.</p><p>Now let's look at a function we've made with a generator:</p><pre><code class="language-python">from time import time
+print(end - start)  # 0.0488176</code></pre>
+<p>Both approaches produce the same result. But list comprehension makes the code more readable, and it also makes our code run twice as fast.</p>
+<h5 id="generators">Generators</h5>
+<p>A regular list saves all of its elements in memory, but this is not very efficient. As you remember, generators are Python structures that allow data to be loaded temporarily. In this way, you get the data you need only when you call it. What's more, there are functions in Python that use the generator structure by default, for example, <code class="language-python">map()</code> and <code class="language-python">filter()</code>. You may want to create your <a class="theory-lookup not-relevant" href="/learn/step/17089" rel="noopener noreferrer nofollow" target="_blank" title="In Python, a generator function is a special type of function that behaves like an iterator, allowing it to control the flow of execution and memory usage. | It is declared similarly to a regular function, but uses the `yield` keyword instead of `return`. When the generator function is called, it returns a generator object, which can be iterated over to produce a series of values. The generator function saves its state between each yielded value, allowing it to pick up where it left off during the previous iteration. This feature, known as lazy evaluation, enables generator functions to be memory-efficient as they only require memory for the current value being yielded.">generator functions</a> as well.</p>
+<p>Now let's look at a function we've made with a generator:</p>
+<pre><code class="language-python">from time import time
 
 def get_odds(n):
     for i in range(n):
@@ -52,7 +67,11 @@ print(end_time - start_time)  # 0.000015
 
 # You can iterate over a generator by using a for loop
 for _ in range(100):
-    print(next(odd_generator))</code></pre><p>In this example, we return odd numbers in a given range. Note that creating the generator happened in no time. However, you should understand that a generator object is different from a list. Generators cannot perform some operations such as indexing and slicing, but we can iterate over our values using a for loop. If we had opted for something else, we would have needed to store all of our numbers in a regular list. In this case, if the list is large enough, it could cause memory overflow or even a crash.</p><h5 id="proper-string-concatenation">Proper string concatenation</h5><p>In some programs, the <code class="language-python">+</code> operator concatenates strings. With each plus operation, a new string is created and copied over the old data. Instead, we can use a more efficient <code class="language-python">join()</code> method:</p><pre><code class="language-python">from time import time
+    print(next(odd_generator))</code></pre>
+<p>In this example, we return odd numbers in a given range. Note that creating the generator happened in no time. However, you should understand that a generator object is different from a list. Generators cannot perform some operations such as indexing and slicing, but we can iterate over our values using a for loop. If we had opted for something else, we would have needed to store all of our numbers in a regular list. In this case, if the list is large enough, it could cause memory overflow or even a crash.</p>
+<h5 id="proper-string-concatenation">Proper string concatenation</h5>
+<p>In some programs, the <code class="language-python">+</code> operator concatenates strings. With each plus operation, a new string is created and copied over the old data. Instead, we can use a more efficient <code class="language-python">join()</code> method:</p>
+<pre><code class="language-python">from time import time
 
 start = time()
 sentence = (
@@ -68,21 +87,31 @@ sentence = " ".join([
     "I" , "don't", "know", "why."])
 print(sentence)
 end = time()
-print(end - start)  # 0.000000226</code></pre><p>We can also decide how to combine elements in the <code class="language-python">join</code> method. In the example, we've combined it with space. In this way, the readability and speed of our code have increased.</p><h5 id="other-improvements">Other improvements</h5><p>Some Python libraries are written in the faster programming languages such as C and C++. Numpy and Pandas libraries can significantly increase the speed of your program.</p><p>Another important thing is to import third-party libraries properly: do not use dots when calling functions in these libraries to increase the speed of your program. Let's see an example:</p><pre><code class="language-python"># With the dot notation
+print(end - start)  # 0.000000226</code></pre>
+<p>We can also decide how to combine elements in the <code class="language-python">join</code> method. In the example, we've combined it with space. In this way, the readability and speed of our code have increased.</p>
+<h5 id="other-improvements">Other improvements</h5>
+<p>Some Python libraries are written in the faster programming languages such as C and C++. Numpy and Pandas libraries can significantly increase the speed of your program.</p>
+<p>Another important thing is to import third-party libraries properly: do not use dots when calling functions in these libraries to increase the speed of your program. Let's see an example:</p>
+<pre><code class="language-python"># With the dot notation
 import time
 import collections
 
 start_time = time.time()
 counter_dict = collections.defaultdict()
 end_time = time.time()
-print(end_time - start_time)  # 0.00000286</code></pre><pre><code class="language-python"># Explicit notation
+print(end_time - start_time)  # 0.00000286</code></pre>
+<pre><code class="language-python"># Explicit notation
 import time
 from collections import defaultdict
 
 start_time = time.time()
 counter = defaultdict()
 end_time = time.time()
-print(end_time - start_time)  # 0.00000166</code></pre><p>In the code above, we have compared the two approaches with the help of the <code class="language-python">time()</code> method. The first code runs slower because of dots; they create lookup operations. Also, explicit import enhances code readability.</p><p><code class="language-python">io.StringIO</code> in Python is an in-memory stream that allows you to read from and write to a string buffer as if it were a file. It provides a file-like interface for working with string data.</p><p style="text-align: start;">Using <code class="language-python">io.StringIO</code> can save memory in certain scenarios because it avoids the need to store data in a physical file on disk. Instead, it keeps the data in memory, which can be more efficient and faster for certain operations. Let's look how to use this method.</p><pre><code class="language-python">import io
+print(end_time - start_time)  # 0.00000166</code></pre>
+<p>In the code above, we have compared the two approaches with the help of the <code class="language-python">time()</code> method. The first code runs slower because of dots; they create lookup operations. Also, explicit import enhances code readability.</p>
+<p><code class="language-python">io.StringIO</code> in Python is an in-memory stream that allows you to read from and write to a string buffer as if it were a file. It provides a file-like interface for working with string data.</p>
+<p style="text-align: start;">Using <code class="language-python">io.StringIO</code> can save memory in certain scenarios because it avoids the need to store data in a physical file on disk. Instead, it keeps the data in memory, which can be more efficient and faster for certain operations. Let's look how to use this method.</p>
+<pre><code class="language-python">import io
 
 obj = io.StringIO()
 obj.write('HyperSkill: ')
@@ -90,5 +119,9 @@ print('The best learning platform', file=obj)
 
 print(obj.getvalue())  # HyperSkill: The best learning platform
 
-obj.close()</code></pre><h5 id="conclusion">Conclusion</h5><p>To sum up, in this topic, we've learned:</p><ul><li><p>Benefits of optimizing our code;</p></li><li><p>Importance of using functions defined in Python when possible;</p></li><li><p>Importance of generators and list comprehension;</p></li><li><p>Effective string concatenation;</p></li><li><p>The correct way to call a method from a library.</p></li></ul><p>Now let's move on to the practice.</p>
+obj.close()</code></pre>
+<h5 id="conclusion">Conclusion</h5>
+<p>To sum up, in this topic, we've learned:</p>
+<ul><li><p>Benefits of optimizing our code;</p></li><li><p>Importance of using functions defined in Python when possible;</p></li><li><p>Importance of generators and list comprehension;</p></li><li><p>Effective string concatenation;</p></li><li><p>The correct way to call a method from a library.</p></li></ul>
+<p>Now let's move on to the practice.</p>
 </div>

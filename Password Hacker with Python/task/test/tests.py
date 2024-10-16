@@ -1,3 +1,5 @@
+import os
+
 from hstest.stage_test import StageTest
 from hstest.test_case import TestCase
 from hstest.check_result import CheckResult
@@ -44,7 +46,8 @@ def random_password():
 class Hacking(StageTest):
 
     def __init__(self, module):
-        super().__init__(source='hacking/hack.py')
+        os.chdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '../hacking')))
+        super().__init__(source='hack.py')
         self.ready = False
         self.sock = None
         self.serv = None

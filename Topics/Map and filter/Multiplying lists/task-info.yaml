@@ -3,9 +3,6 @@ files:
   - name: main.py
     visible: true
     highlight_level: NONE
-    text: |-
-      def my_product(list_1, list_2):
-          return list(...)
     learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8128#comment
 status: Solved

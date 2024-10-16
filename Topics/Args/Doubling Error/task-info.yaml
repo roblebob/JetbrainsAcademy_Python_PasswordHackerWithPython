@@ -1,0 +1,14 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: double_print(*123)
+  - text: double_print(*"double")
+  - text: "double_print(*[1, 2, 3])"
+files:
+  - name: main.py
+    visible: true
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9547#comment
+status: Solved
+record: -1
+local_check: false

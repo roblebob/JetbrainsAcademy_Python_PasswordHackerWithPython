@@ -1,5 +1,5 @@
 type: number
-custom_name: 'Write a number:'
+custom_name: "Write a number:"
 files:
   - name: answer.txt
     visible: true
@@ -13,7 +13,6 @@ files:
         initialized_from_dependency: false
         selected: false
         status: Solved
-    text: type your solution here
     learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6041#comment
 status: Solved

@@ -1,0 +1,15 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: an integer
+  - text: a string
+  - text: a list
+  - text: a float
+files:
+  - name: main.py
+    visible: true
+    learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10297#comment
+status: Solved
+record: -1
+local_check: false

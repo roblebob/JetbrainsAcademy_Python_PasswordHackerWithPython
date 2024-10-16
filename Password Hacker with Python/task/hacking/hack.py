@@ -3,18 +3,27 @@ import sys
 import socket
 import string
 import itertools
+import requests
 
 BUFFER_SIZE = 1024
 MAX_NUM_PASSWORDS = 1_000_000
+PASSWORDS_URL = "https://stepik.org/media/attachments/lesson/255258/passwords.txt"
+
+
+
+def get_passwords_from_url(url):
+    response = requests.get(url)
+    return response.text.splitlines()
+
+def variate_passwords(password):
+    return set(map(lambda x: ''.join(x), itertools.product(*([letter.lower(), letter.upper()] for letter in password))))
+
 
 
 def generate_password(MAX):
-    chars = list(string.ascii_lowercase + string.digits)
-    length = 1
     counter = 0
-    while counter < MAX:
-        passwords = list(map(lambda s: ''.join(s), itertools.product(chars, repeat=length)))
-        length += 1
+    for _password in get_passwords_from_url(PASSWORDS_URL):
+        passwords = variate_passwords(_password)
         for password in passwords:
             yield password
             counter += 1

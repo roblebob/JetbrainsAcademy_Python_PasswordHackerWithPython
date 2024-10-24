@@ -15,3 +15,4 @@ content:
   - Logging
   - Operations with dictionary
   - Kwargs
+  - Profiling in Python

